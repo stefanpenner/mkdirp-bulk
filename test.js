@@ -60,6 +60,8 @@ describe('sync', function() {
   it("works with absolute", function() {
     var full = __dirname + '/tests/fixtures/bar/foo.js';
     expect(mkdirBulk.sync([full])).to.be.eql(full.split('/').length - 2);
+
+    expect(fs.existsSync('bar'), 'expected: `bar` to exist').to.be.false;
   });
 
   it("minimizes mkdirs", function() {

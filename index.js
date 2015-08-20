@@ -14,12 +14,13 @@ module.exports.sync = function(paths) {
       if (current) {
         current = current + '/' + next;
       } else {
-        current = next;
+        current = '/' + next;
       }
 
-      if (!current) { return; }
+      if (!current)        { return; }
       if (current === '.') { return; }
-      if (current === '') { return; }
+      if (current === '')  { return; }
+      if (current === '/') { return; }
 
       if (!created[current]) {
         try {
