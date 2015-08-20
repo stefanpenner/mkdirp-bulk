@@ -57,6 +57,11 @@ describe('sync', function() {
     ])).to.be.eql(0);
   });
 
+  it("works with absolute", function() {
+    var full = __dirname + '/tests/fixtures/bar/foo.js';
+    expect(mkdirBulk.sync([full])).to.be.eql(full.split('/').length - 2);
+  });
+
   it("minimizes mkdirs", function() {
     expect(mkdirBulk.sync([
       'foo/a',

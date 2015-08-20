@@ -10,15 +10,16 @@ module.exports.sync = function(paths) {
   var count = 0;
   var created = {};
   unique(paths.map(path.dirname)).forEach(function(path) {
-    if (!path) { return; }
-    if (path === '.') { return; }
-
     path.split('/').reduce(function(current, next) {
       if (current) {
         current = current + '/' + next;
       } else {
         current = next;
       }
+
+      if (!current) { return; }
+      if (current === '.') { return; }
+      if (current === '') { return; }
 
       if (!created[current]) {
         try {
