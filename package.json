@@ -1,6 +1,6 @@
 {
   "name": "mkdirp-bulk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "quickly create many dirs",
   "main": "index.js",
   "scripts": {
