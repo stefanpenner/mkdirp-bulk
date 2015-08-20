@@ -9,7 +9,10 @@ module.exports = function() {
 module.exports.sync = function(paths) {
   var count = 0;
   var created = {};
-  unique(paths.map(path.dirname)).map(function(path) {
+  unique(paths.map(path.dirname)).forEach(function(path) {
+    if (!path) { return; }
+    if (path === '.') { return; }
+
     path.split('/').reduce(function(current, next) {
       if (current) {
         current = current + '/' + next;

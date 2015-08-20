@@ -51,6 +51,12 @@ describe('sync', function() {
     expect(fs.existsSync('baz/apple/orange'), 'expected: `baz/apple/orange` dir to exist').to.be.true;
   });
 
+  it("ignores the root", function() {
+    expect(mkdirBulk.sync([
+      'foo.js'
+    ])).to.be.eql(0);
+  });
+
   it("minimizes mkdirs", function() {
     expect(mkdirBulk.sync([
       'foo/a',
